@@ -1,26 +1,26 @@
 import React from 'react';
-import './App.css';
+import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Views/Home';
+import Race from './Views/Races/[id]/Race';
 
 function App() {
 
-  const requestOptions = React.useState({
-    method: 'GET',
-    redirect: 'follow'
-  });
-
-  const [winner, setWinner] = React.useState("");
-  
   React.useEffect(() => {
-    fetch("https://ergast.com/api/f1/current/last/results.json", requestOptions)
-    .then((res) => { return res.json() })
-    .then((data) => { return setWinner(data.MRData.RaceTable.Races[0].Results[0].Driver.familyName) })
-    .catch((error) => { return console.log('error', error) });
-  }, [])
+    document.title = 'F1 prono';
+    document.body.style = 'background: #1a1b1e;';
+  })
 
   return (
-    <>
-    <h1>{winner}</h1>
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/'>
+          <Route index element={<Home />}/>
+          <Route path=':season/:id' element={<Race />}/>
+        </Route>
+      </Routes>
+    </Router>
   );
 }
 
