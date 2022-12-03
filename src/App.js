@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/Navbar';
+import Navbar from './Components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Views/Home';
 import Race from './Views/Races/[id]/Race';
@@ -8,7 +8,6 @@ function App() {
 
   React.useEffect(() => {
     document.title = 'F1 prono';
-    document.body.style = 'background: #1a1b1e;';
   })
 
   return (

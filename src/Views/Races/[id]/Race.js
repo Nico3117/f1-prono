@@ -1,5 +1,6 @@
+import Results from '../../../Components/Results'
+import Form from '../../../Components/Form'
 import React from 'react';
-import Results from '../../../components/Results'
 import { useLocation } from "react-router-dom"
 
 function Race() {
@@ -11,7 +12,8 @@ function Race() {
   const raceId = pathname.split("/")[2]
 
   return (
-    <div className="text-white bg-dark">
+    <div className='flex'>
+      <Form />
       <Results raceId={raceId} year={year} />
     </div>
   )

@@ -12,12 +12,15 @@ function Results({year, raceId}) {
     }, [])
 
   return (
-    <div className="flex flex-col">
-        {
-          Results.map(rank => 
-            <span key={rank.position}>{rank.position} - {rank.Driver.familyName}</span>
-          )
-        }
+    <div className="w-3/6 p-10">
+      <div className="flex flex-col ">
+        <h2 className="text-2xl mb-5">Résultat de la course</h2>
+          {
+            Results.map(rank => 
+              <span key={rank.position}>{rank.position} - {rank.Driver.familyName}</span>
+            )
+          }
+      </div>
     </div>
   )
 }

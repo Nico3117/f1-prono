@@ -1,13 +1,30 @@
 import React from 'react';
+import logo from '../img/logo-f1.png'; 
+import { Link } from "react-router-dom";
 
+function Navbar() {
 
-function Header() {
+    const [theme, setTheme] = React.useState(localStorage.getItem('theme') || 'Dark');
+
+    const toggleTheme = () => {
+        if (theme === 'light') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    };
+
+    React.useEffect(() => {
+        localStorage.setItem('theme', theme);
+        document.body.className = theme;
+    }, [theme]);
+
   return (
-    <nav className="flex items-center justify-between flex-wrap py-4 lg:px-12 shadow border-solid border-t-2 border-red-700 text-white bg-dark">
+    <nav className="flex items-center justify-between flex-wrap py-4 lg:px-12 shadow border-solid border-t-2 border-red-700">
 
         <div className="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0">
             <div className="flex items-center flex-shrink-0 mr-16">
-                <h1 className="font-semibold text-xl tracking-tight"><span className="text-red-700 font-bold">F1</span>Prono</h1>
+                <Link to='/'><img src={logo} width="90"></img></Link>
             </div>
             <div className="block lg:hidden">
                 <button
@@ -27,7 +44,7 @@ function Header() {
                     Menu 1
                 </a>
                 <a href="#responsive-header"
-                   className=" block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded mr-2">
+                   className="block mt-4 lg:inline-block lg:mt-0 hover:text-white px-4 py-2 rounded mr-2">
                     Menu 2
                 </a>
                 <a href="#responsive-header"
@@ -37,8 +54,13 @@ function Header() {
             </div>
         </div>
 
+        <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+            <input type="checkbox" onClick={toggleTheme} name="toggle" id="toggle" className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+            <label htmlFor="toggle" className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+        </div>
+
     </nav>
   )
 }
 
-export default Header
+export default Navbar
