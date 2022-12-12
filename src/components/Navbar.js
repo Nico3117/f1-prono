@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from '../img/logo-f1.png'; 
+import logo from '../Img/logo-f1.png'; 
 import { Link } from "react-router-dom";
+import { BsMoon, BsSun } from 'react-icons/bs';
 
 function Navbar() {
 
@@ -54,11 +55,12 @@ function Navbar() {
             </div>
         </div>
 
-        <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+        <BsMoon />
+        <div className="relative inline-block w-10 mx-2 align-middle select-none transition duration-200 ease-in">
             <input type="checkbox" onClick={toggleTheme} name="toggle" id="toggle" className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
             <label htmlFor="toggle" className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
         </div>
-
+        <BsSun />
     </nav>
   )
 }
