@@ -19,9 +19,9 @@ function App() {
       <Routes>
         <Route path='/'>
           <Route index element={<Home />}/>
-          <Route path=':season/:id' element={<Race />}/>
-          <Route path='signup' element={<Signup />}/>
-          <Route path='signin' element={<Signin />}/>
+          {/* <Route path=':season/:id' element={<Race />}/> */}
+          <Route path='inscription' element={<Signup />}/>
+          <Route path='connexion' element={<Signin />}/>
           <Route path='mon-compte' element={<Account />}/>
         </Route>
       </Routes>
