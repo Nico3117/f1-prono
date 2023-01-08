@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './Views/Home';
-import Race from './Views/Races/[id]/Race';
+// import Race from './Views/Races/[id]/Race';
 import Sidebar from './Components/Sidebar';
 import Signup from './Views/Auth/Signup';
 import Signin from './Views/Auth/Signin';
