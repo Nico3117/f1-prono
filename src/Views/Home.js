@@ -1,38 +1,28 @@
 import React from 'react';
-// import Constructors from '../Components/Constructors';
-// import Drivers from '../Components/Drivers';
+import { Link } from "react-router-dom"
 
 function Home() {
 
-  const [currentSeason, setStanding] = React.useState([])
+  const [currentSeason, setCurrentSeason] = React.useState([])
 
   React.useEffect(() => {
       fetch("https://ergast.com/api/f1/2023.json")
       .then((res) => { return res.json() })
-      .then((data) => { setStanding(data.MRData.RaceTable.Races) })  
+      .then((data) => { setCurrentSeason(data.MRData.RaceTable.Races) })  
       .catch((error) => { return console.log('error', error) });
     }, [])
 
     console.log(currentSeason)
 
   return (
-    <>
+    <div className='container mx-auto'>
       <h1 className='text-4xl mx-5 my-10'>Faites vos pronostics sur le prochaine gp !</h1>
-
       {
-            currentSeason.map(season => 
-                <span className="flex flex-col font-semibold text-2xl" key={season.round}>{season.raceName} - {season.date}</span>
-            )
-        } 
-      {/* <div className="flex">
-        <div className="bg-gray-700 w-1/2 rounded-lg m-4 h-80 overflow-hidden">
-          <Drivers/>
-        </div>
-        <div className="bg-gray-700 w-1/2 rounded-lg m-4 h-80 overflow-hidden"> 
-          <Constructors/>
-        </div>
-      </div> */}
-    </>
+        currentSeason.map(race => 
+          <Link key={race.round} to={race.Circuit.circuitId} className="flex align-items container h-16 rounded-md m-5 border border-[#242424] items-center">{race.round} {race.raceName}</Link>
+        )
+      }       
+    </div>
   )
 }
 

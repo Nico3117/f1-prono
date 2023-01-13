@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom"
 
 function Race() {
   const { season, id } = useParams();
-
   const [Tabs, setTabs] = React.useState(1);
 
   return (

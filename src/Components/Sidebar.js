@@ -2,7 +2,6 @@ import React from 'react';
 import logo from '../Img/logo-f1.png'; 
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineHome, AiOutlineUser, AiOutlineMenu, AiOutlineClose, AiOutlineLogout } from 'react-icons/ai';
-// import { BsMoon, BsSun } from 'react-icons/bs';
 import { auth } from '../Config/Firebase';
 import { signOut } from 'firebase/auth';
 
@@ -30,22 +29,6 @@ function Sidebar() {
           });
     }
 
-    // Choix thème sombre / clair 
-    //
-    // const [Theme, setTheme] = React.useState(localStorage.getItem('Theme') || 'Dark');
-    // const toggleTheme = () => {
-    //     if (Theme === 'light') {
-    //         setTheme('dark');
-    //     } else {
-    //         setTheme('light');
-    //     }
-    // };
-
-    // React.useEffect(() => {
-    //     localStorage.setItem('Theme', Theme);
-    //     document.body.className = Theme;
-    // }, [Theme]);
-
   return (
     <>
         <div className="w-full bg-dark h-20 flex items-center pl-6">
@@ -53,7 +36,7 @@ function Sidebar() {
         </div>
         <div className={"flex flex-col text-gray-800 " + ( Open ? "hidden" : "")}>
             <div className="fixed flex flex-col top-0 left-0 w-64 bg-dark h-full shadow-lg">
-                <div className="h-20 border-b border-gray-800 flex items-center justify-around">
+                <div className="h-20 border-b border-gray-900 flex items-center justify-around">
                     <Link to='/' onClick={OpenSidebar} className="w-fit inline-block"><img src={logo} alt="logo" width="90"></img></Link>
                     <AiOutlineClose  onClick={OpenSidebar} className="text-white cursor-pointer" size={30}/>
                 </div>
