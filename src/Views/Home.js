@@ -16,10 +16,12 @@ function Home() {
 
   return (
     <div className='container mx-auto'>
-      <h1 className='text-4xl mx-5 my-10'>Faites vos pronostics sur le prochaine gp !</h1>
+      <h1 className='text-4xl mx-5 py-10'>Faites vos pronostics sur le prochaine gp !</h1>
       {
         currentSeason.map(race => 
-          <Link key={race.round} to={race.Circuit.circuitId} className="flex align-items container h-16 rounded-md m-5 border border-[#242424] items-center">{race.round} {race.raceName}</Link>
+          <Link key={race.round} to={race.Circuit.circuitId} className="flex align-items h-20 rounded-md m-5 border border-[#242424] items-center">
+            <span className='text-yellow px-3 text-3xl'>{race.round}</span> {race.raceName}
+          </Link>
         )
       }       
     </div>

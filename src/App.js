@@ -13,10 +13,10 @@ function App() {
     <Router>
       <Helmet>
         <title>F1 prono</title>
-        <style>{'body { background-color: #1d1d1d;color: #fff; }'}</style>
+        <style>{'body { background-color: #1d1d1d;color: #fff;margin-top: 80px }'}</style>
       </Helmet>
       <Sidebar />
-      <Routes className='container'>
+      <Routes>
         <Route path='/'>
           <Route index element={<Home />}/>
           <Route path=':circuitId' element={<Race />}/>
